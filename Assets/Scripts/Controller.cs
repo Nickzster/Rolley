@@ -10,6 +10,7 @@ public class Controller : MonoBehaviour
     private int count; //Used for pick ups
     public float speed; //How fast the object will move
     private Vector3 fallingVelocity; //Used for gravity simulation.
+    private CharacterController controller;
     //Physics stuff
     public LayerMask ground;
     public Transform feet;
@@ -39,6 +40,7 @@ public class Controller : MonoBehaviour
         count = 0;
         increment();
         winText.text = "";
+        controller = GetComponent<CharacterController>();
     }
 
     private void Update() //Called before rendering a frame
@@ -52,10 +54,10 @@ public class Controller : MonoBehaviour
         {
             fallingVelocity.y = Mathf.Sqrt(Gravity * jumpHeight);
             Debug.Log(fallingVelocity);
-            rb.AddForce(fallingVelocity);
             Debug.Log("Player should jump now");
         }
-      
+        controller.Move(fallingVelocity * Time.deltaTime);
+
     }
     private void FixedUpdate() //Called before performing any physics calculations
     {
