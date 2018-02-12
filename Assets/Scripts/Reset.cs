@@ -21,7 +21,11 @@ public class Reset : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(1);
-
+        Debug.Log("ONTRIGGERENTERED");
+        if(other == PlayerColl)
+        {
+            Debug.Log("PLAYER");
+            SceneManager.LoadScene("myGame");
+        }
     }
 }

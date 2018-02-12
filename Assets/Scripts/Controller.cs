@@ -58,6 +58,16 @@ public class Controller : MonoBehaviour
         }
         controller.Move(fallingVelocity * Time.deltaTime);
 
+        if(Input.GetKeyDown("m"))
+        {
+            Application.LoadLevel("menu");
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
     }
     private void FixedUpdate() //Called before performing any physics calculations
     {

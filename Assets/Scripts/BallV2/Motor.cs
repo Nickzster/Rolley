@@ -8,7 +8,7 @@ public class Motor : MonoBehaviour
 {
     public float moveSpeed = 5.0f; //Roll speed value
     public float drag = 0.5f; //Friction value
-    public float terminalRotationSpeed = 25.0f; //Fastest a player can go.
+    public float terminalRotationSpeed = 25.0f; //Fastest object rotates. Match w/ moveSpeed
     public float gravity = 9.8f;
     public Transform feet;
     public LayerMask ground;
@@ -55,6 +55,16 @@ public class Motor : MonoBehaviour
         controller.AddForce(rotatedDirection * moveSpeed); //Move the object
         if(Input.GetButtonDown("Jump") && isGrounded)
             controller.velocity += jumpHeight * Vector3.up;
+
+        if (Input.GetKeyDown("m"))
+        {
+            Application.LoadLevel("menu");
+        }
+
+        if(Input.GetKeyDown("r"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -45,21 +45,21 @@ public class FreeCameraMotor : MonoBehaviour
     private void LateUpdate()
     {
 
-        Vector3 dir = new Vector3(0, 0, -distance);
-        Quaternion rotation = Quaternion.Euler(currentY * sensitivityY, currentX * sensitivityX, 0);
-        Quaternion fixedRotation = Quaternion.Euler(fixedY, currentX * sensitivityX, 0);
+        Vector3 dir = new Vector3(0, 0, -distance); //This is the direction (rep. as a vector) the camera needs to look at.
+        Quaternion rotation = Quaternion.Euler(currentY * sensitivityY, currentX * sensitivityX, 0); //for rotation on x & y
+        Quaternion fixedRotation = Quaternion.Euler(fixedY, currentX * sensitivityX, 0); //for rotation on x only
 
-                if (Input.GetMouseButton(1)) //if the player is holding down left click -- move camera horizontally ONLY
+                if (Input.GetMouseButton(1)) //if the player is holding down right click -- move camera horizontally + vertically. 
                 {
                     fixedX = currentX;
                     fixedY = currentY;
-                    camTransform.position = lookAt.position + rotation * dir;
-                    camTransform.LookAt(lookAt.position);
+                    camTransform.position = lookAt.position + rotation * dir; //move the Camera
+                    camTransform.LookAt(lookAt.position); //Lock camera to target.
                 }
-                else //player is not holding down left click -- move camera vertically as well.
+                else //player is not holding down left click -- move camera horizontally ONLY.
                 {
-                    camTransform.position = lookAt.position + fixedRotation * dir;
-                    camTransform.LookAt(lookAt.position);
+                    camTransform.position = lookAt.position + fixedRotation * dir; //Move camera
+                    camTransform.LookAt(lookAt.position); //Lock camera to target
                 } 
     }
 }

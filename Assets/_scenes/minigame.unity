@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465769, g: 0.49641222, b: 0.5748185, a: 1}
+  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641138, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -254,6 +254,48 @@ Prefab:
 --- !u!1 &263716923 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1708804448106798, guid: 85378de8de45b7045bb036cf080bda87,
+    type: 2}
+  m_PrefabInternal: {fileID: 681553249}
+--- !u!143 &263716924
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263716923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &263716927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263716923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe60514c219c64d968b2ac5e25996a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  feet: {fileID: 263716930}
+  countText: {fileID: 1246595766}
+  winText: {fileID: 126171598}
+  Gravity: 0
+  jumpHeight: 0
+--- !u!4 &263716930 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4660434264998630, guid: 85378de8de45b7045bb036cf080bda87,
     type: 2}
   m_PrefabInternal: {fileID: 681553249}
 --- !u!4 &340551049 stripped
@@ -543,7 +585,8 @@ Prefab:
       propertyPath: winText
       value: 
       objectReference: {fileID: 126171598}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114985025226266708, guid: 85378de8de45b7045bb036cf080bda87, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 85378de8de45b7045bb036cf080bda87, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &733057090 stripped
@@ -1132,6 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 263716923}
+  Player: {fileID: 0}
 --- !u!1001 &1210482439
 Prefab:
   m_ObjectHideFlags: 0
